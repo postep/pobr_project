@@ -36,6 +36,7 @@ void hsv_desaturation(cv::Mat &I){
 
 void convolution(cv::Mat &I, double (*f)[5]){
     cv::Mat_<cv::Vec3b> _I = I;
+    cv::Mat_<cv::Vec3b> _R = I.clone();
     int size = 5;
     double ratio = 0;
     for(int i = 0; i < size; ++i){
@@ -44,28 +45,76 @@ void convolution(cv::Mat &I, double (*f)[5]){
         }
     }
     
-    for(int r = 0+size/2; r < I.rows-size/2; ++r){
-        for(int c = 0+size/2; c < I.cols-size/2; ++c){
+    for(int r = 0; r < I.rows; ++r){
+        for(int c = 0; c < I.cols; ++c){
             
             double cr = 0, cg = 0, cb = 0;
             for(int p = 0; p <  size; ++p){
                 for(int q = 0; q < size; ++q){
-                    cb += f[p][q]*_I(r+p-(size/2), c+q-(size/2))[0];
-                    cg += f[p][q]*_I(r+p-(size/2), c+q-(size/2))[1];
-                    cr += f[p][q]*_I(r+p-(size/2), c+q-(size/2))[2];
+                    if(r+p-(size/2) >= 0 && r+p-(size/2) < I.rows && 
+                                c+q-(size/2) >= 0 && c+q-(size/2) < I.cols){
+                        cb += f[p][q]*_I(r+p-(size/2), c+q-(size/2))[0];
+                        cg += f[p][q]*_I(r+p-(size/2), c+q-(size/2))[1];
+                        cr += f[p][q]*_I(r+p-(size/2), c+q-(size/2))[2];    
+                    }
                 }
             }
             cb /= ratio;
             cg /= ratio;
             cr /= ratio;
 
-            _I(r, c)[0] = normalize((int)cb);
-            _I(r, c)[1] = normalize((int)cg);
-            _I(r, c)[2] = normalize((int)cr);
+            _R(r, c)[0] = normalize((int)cb);
+            _R(r, c)[1] = normalize((int)cg);
+            _R(r, c)[2] = normalize((int)cr);
         }
     }
 
-    I = _I;
+    I = _R;
+}
+
+
+double func(double f[5][5][3], int idx){
+    double res = f[0][0][idx];
+    for(int i = 0; i < 5; ++i){
+        for(int j = 0; j < 5; ++j){
+            if(res < f[i][j][idx]){
+                res = f[i][j][idx];
+            }
+        }
+    }
+    return res;
+}
+
+void binary_filter(cv::Mat &I){
+    int size = 5;
+    cv::Mat_<cv::Vec3b> _I = I;
+    cv::Mat_<cv::Vec3b> _R = I.clone();
+    for(int r = 0; r < I.rows; ++r){
+        for(int c = 0; c < I.cols; ++c){
+            
+            double f[5][5][3];
+            for(int p = 0; p <  size; ++p){
+                for(int q = 0; q < size; ++q){
+                    if(r+p-(size/2) >= 0 && r+p-(size/2) < I.rows && 
+                                c+q-(size/2) >= 0 && c+q-(size/2) < I.cols){
+                        f[p][q][0] = _I(r+p-(size/2), c+q-(size/2))[0];
+                        f[p][q][1] = _I(r+p-(size/2), c+q-(size/2))[1];
+                        f[p][q][2] = _I(r+p-(size/2), c+q-(size/2))[2];    
+                    }else{
+                        f[p][q][0] = 0;
+                        f[p][q][1] = 0;
+                        f[p][q][2] = 0;
+                    }
+                }
+            }
+
+            _R(r, c)[0] = normalize((int)func(f, 0));
+            _R(r, c)[1] = normalize((int)func(f, 1));
+            _R(r, c)[2] = normalize((int)func(f, 2));
+        }
+    }
+
+    I = _R;
 }
 
 void gaussian_blur(cv::Mat &I){
@@ -84,6 +133,10 @@ int recognition(cv::Mat I, cv::Mat &R){
     cvtColor(I, HSV, CV_BGR2HSV);
     hsv_desaturation(HSV);
     gaussian_blur(HSV);
+    gaussian_blur(HSV);
+    
+    binary_filter(HSV);
+    
     cvtColor(HSV, R, CV_HSV2BGR);
     return 0;
 }
