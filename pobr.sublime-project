@@ -1,0 +1,27 @@
+{
+	"folders":
+	[
+		{
+			"path": "."
+		}
+	],
+	"settings":
+	{
+		"cmake":
+		{
+			"schemes":
+			[
+				{
+					"build_folder": "${project_path}/build/debug",
+					"command_line_overrides":
+					{
+						"BUILD_SHARED_LIBS": true,
+						"CMAKE_BUILD_TYPE": "Debug",
+						"CMAKE_EXPORT_COMPILE_COMMANDS": true
+					},
+					"name": "Debug"
+				}
+			]
+		}
+	}
+}

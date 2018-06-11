@@ -1,0 +1,3 @@
+/home/postep/pobr/CMakeFiles/rebuild_cache.dir
+/home/postep/pobr/CMakeFiles/demo.dir
+/home/postep/pobr/CMakeFiles/edit_cache.dir

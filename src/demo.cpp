@@ -7,18 +7,30 @@
 #include <queue>
 #include <math.h>
 
+int min(int a, int b){
+    return (a < b) ? a : b;
+}
+
+int max(int a, int b){
+    return (a < b) ? b : a;
+}
+
 class Rect{
 public:
     int min_row;
     int max_row;
     int min_col;
     int max_col;
+    int mr;
+    int mc;
     bool text;
-    Rect(int r, int c){
+    Rect(int r, int c, int maxr, int maxc){
         min_row = r;
         max_row = r;
         min_col = c;
         max_col = c;
+        mr = maxr-1;
+        mc = maxc-1;
         text = true;
     }
     void spread(int r, int c){
@@ -52,20 +64,38 @@ public:
         return min_col + 1*(max_col-min_col)/3;   
     }
 
+    void bubble(){
+        int x = max_col-min_col;
+        int y = max_row-min_row;
+
+        x *= 0.2;
+        y *= 0.2;
+
+        min_col -= x;
+        max_col += x;
+
+        min_row -= y;
+        max_row += y;
+
+        min_row = max(0, min_row);
+        min_col = max(0, min_col);
+        max_row = min(max_row, mr);
+        max_col = min(max_col, mc);
+    }
+
+    double get_ratio(){
+        if(max_col-min_col == 0){
+            return 1000;
+        }
+        return (double)(max_row-min_row)/(max_col-min_col);
+    }
+
     void print(){
         std::cout << "min_row: " << min_row << " max_row: " << max_row 
-        << " min_col: " << min_col << " max_col:" << max_col;
+        << " min_col: " << min_col << " max_col:" << max_col << " ratio: " << get_ratio();
     }
 };
-
-
-int min(int a, int b){
-    return (a < b) ? a : b;
-}
-
-int max(int a, int b){
-    return (a < b) ? b : a;
-}
+    
 
 int normalize(double v){
     if (v > 255){
@@ -205,6 +235,21 @@ void dilation(cv::Mat &I){
 }
 
 
+void contrast(cv::Mat &I, double contrast){
+    cv::Mat_<cv::Vec3b> _I = I;
+
+    for(int r = 0; r < I.rows; ++r){
+        for(int c = 0; c < I.cols; ++c){
+            double factor = (259 * (contrast + 255)) / (255 * (259 - contrast));
+            _I(r, c)[2] = normalize(factor * (_I(r, c)[2] - 128) + 128);
+            _I(r, c)[1] = normalize(factor * (_I(r, c)[1] - 128) + 128);
+            _I(r, c)[0] = normalize(factor * (_I(r, c)[0] - 128) + 128);
+        }
+    }
+
+    I = _I;
+}
+
 void treshold(cv::Mat &I, int t0, int t1, int t2){
     cv::Mat_<cv::Vec3b> _I = I;
 
@@ -263,7 +308,7 @@ void draw_rect(cv::Mat &I, int min_row, int min_col, int max_row, int max_col, i
 
 
 Rect bfs(cv::Mat &I, cv::Mat_<cv::Vec3b> &_I, int r, int c){
-    Rect rect(r, c);
+    Rect rect(r, c, I.rows, I.cols);
     _I(r, c)[2] = 255;
     std::queue<std::pair<int, int>> q;
     q.push(std::pair<int, int>(r, c));
@@ -307,7 +352,9 @@ std::vector<Rect> detect_shapes(cv::Mat &I){
     for(int r = 0; r < I.rows; ++r){
         for(int c = 0; c < I.cols; ++c){
             if(_I(r, c)[2] == 0){
-                rects.push_back(bfs(I, _I, r, c));
+                Rect rect = bfs(I, _I, r, c);
+                rect.bubble();
+                rects.push_back(rect);
             }
         }
     }
@@ -320,7 +367,7 @@ bool angle_correct(int value, int nominal){
     if(diff > 90){
         diff =  abs(diff-180);
     }
-    return diff < 5;
+    return diff < 10;
 }
 
 bool stripe(int v, int stripe_n){
@@ -372,16 +419,20 @@ std::vector<Rect> detect_caparols(cv::Mat HSV, std::vector<Rect> bounds){
     cv::Mat_<cv::Vec3b> _I = HSV;
     for(int i = 0; i < bounds.size(); ++i){
         Rect r = bounds[i];
-        bool caparol = check_row(_I, r.min_col, r.max_col, r.get_higher_row());
-        caparol = caparol || check_row(_I, r.min_col, r.max_col, r.get_lower_row());
-        caparol = caparol || check_col(_I, r.min_row, r.max_row, r.get_higher_col());
-        caparol = caparol || check_col(_I, r.min_row, r.max_row, r.get_lower_col());
-        caparol = caparol || check_rising(_I, r.min_row, r.max_row, r.get_lower_col());
-        caparol = caparol || check_rising(_I, r.min_row, r.max_row, r.get_higher_col());
-        caparol = caparol || check_falling(_I, r.min_row, r.max_row, r.get_lower_col());
-        caparol = caparol || check_falling(_I, r.min_row, r.max_row, r.get_higher_col());
+        bool caparol = false;
+        int lines = 0;
+        if (abs(1-r.get_ratio()) < 0.45 && !(r.max_col == HSV.cols-1 && r.min_col == 0 && r.min_row == 0 && r.max_row == HSV.rows-1)){
+            lines += check_row(_I, r.min_col, r.max_col, r.get_higher_row());
+            lines += check_row(_I, r.min_col, r.max_col, r.get_lower_row());
+            lines += check_col(_I, r.min_row, r.max_row, r.get_higher_col());
+            lines += check_col(_I, r.min_row, r.max_row, r.get_lower_col());
+            //lines += check_rising(_I, r.min_row, r.max_row, r.get_lower_col());
+            //lines += check_rising(_I, r.min_row, r.max_row, r.get_higher_col());
+            //lines += check_falling(_I, r.min_row, r.max_row, r.get_lower_col());
+            //lines += check_falling(_I, r.min_row, r.max_row, r.get_higher_col());
+        }
 
-        if(caparol && !(r.max_col == HSV.cols-1 && r.min_col == 0 && r.min_row == 0 && r.max_row == HSV.rows-1)){
+        if(lines >= 1){
             caparols.push_back(r);
         }
     }
@@ -390,26 +441,34 @@ std::vector<Rect> detect_caparols(cv::Mat HSV, std::vector<Rect> bounds){
 
 std::vector<Rect> recognition(cv::Mat &I){
     
+    cv::Mat C = I.clone();
+    cvtColor(I, C, CV_BGR2HSV);
+    contrast(I, 80);
+    
     cv::Mat HSV;
     cvtColor(I, HSV, CV_BGR2HSV);
-    cv::Mat HSV2 = HSV.clone();
     
     treshold(HSV, -1, 255, -1);
     gaussian_blur(HSV);
     erosion(HSV);
     gaussian_blur(HSV);
-    erosion(HSV);
-    erosion(HSV);
+    treshold(HSV, -1, -1, 80);
     erosion(HSV);
     erosion(HSV);
     dilation(HSV);
     dilation(HSV);
     dilation(HSV);
-    gaussian_blur(HSV);
-    treshold(HSV, -1, -1, 60);
+    dilation(HSV);
+    dilation(HSV);
+    dilation(HSV);
+    dilation(HSV);
+
+
+    cv::Mat R = HSV.clone();
+    cvtColor(HSV, R, CV_HSV2BGR);
 
     std::vector<Rect> bounds = detect_shapes(HSV);
-    std::vector<Rect> caparols = detect_caparols(HSV2, bounds);
+    std::vector<Rect> caparols = detect_caparols(C, bounds);
 
     return caparols;
 }
@@ -419,7 +478,7 @@ void perform(std::vector<std::string> names){
         cv::Mat I = cv::imread(names[i]);
         CV_Assert(I.depth() != sizeof(uchar));
         if(I.channels() == 3){
-        
+
             std::cout << "RECOGNITION: " << names[i] << std::endl;
             std::vector<Rect> caparols = recognition(I);
             std::cout << "RECOGNIZED: " << caparols.size() << std::endl;
@@ -434,8 +493,11 @@ void perform(std::vector<std::string> names){
                 }else{
                     draw_rect(R, r.min_row, r.min_col, r.max_row, r.max_col, 0, 0, 255);
                 }
+                
             }
             cv::imshow("PROCESSED: " + names[i], R);
+            std::cout << std::endl << std::endl;
+            
         
         }else{
             std::cout << "WRONG IMAGE: " << names[i] << std::endl;
@@ -446,6 +508,19 @@ void perform(std::vector<std::string> names){
 int main(int, char *[]) {
     std::vector<std::string> names;
     names.push_back("./images/caparol.jpg");
+    names.push_back("./images/caparol5.jpg");
+    names.push_back("./images/caparol6.jpeg");
+    names.push_back("./images/caparol7.jpg");
+    names.push_back("./images/caparol8.jpeg");
+    names.push_back("./images/caparol2.jpg");
+    names.push_back("./images/caparol4.jpg");
+    ////names.push_back("./images/elephant.png");
+    
+
+    names.push_back("./images/caparol_building2.jpg");
+    names.push_back("./images/caparol_building.jpg");
+    names.push_back("./images/caparol_building4.jpg");
+
     perform(names);
     cv::waitKey(-1);
     return 0;

@@ -1,0 +1,769 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"get_hig",
+				"get_higher_row"
+			],
+			[
+				"CMAKE_IN",
+				"CMAKE_INSTALL_PREFIX"
+			],
+			[
+				"CM",
+				"CMAKE_BINARY_DIR\tline 7"
+			],
+			[
+				"Pro",
+				"PROJECT_SOURCE_DIR\tbuiltin"
+			],
+			[
+				"PROJE",
+				"PROJECT_BINARY_DIR\tbuiltin"
+			],
+			[
+				"PRO",
+				"PROJECT_BINARY_DIR\tbuiltin"
+			],
+			[
+				"LIB",
+				"LIBRARY_OUTPUT_PATH"
+			],
+			[
+				"CMAKE_S",
+				"CMAKE_SOURCE_DIR\tbuiltin"
+			],
+			[
+				"cmak",
+				"cmake_minimum_required\tcommand"
+			],
+			[
+				"pus",
+				"push_back\tfunc"
+			],
+			[
+				"push",
+				"push_back\tfunc"
+			],
+			[
+				"de",
+				"delete"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "src/demo.cpp",
+			"settings":
+			{
+				"buffer_size": 12162,
+				"encoding": "UTF-8",
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "src/CMakeLists.txt",
+			"settings":
+			{
+				"buffer_size": 202,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "demo - all",
+	"build_system_choices":
+	[
+		[
+			[
+				[
+					"demo - all",
+					""
+				],
+				[
+					"demo - clean",
+					""
+				],
+				[
+					"demo - demo",
+					""
+				],
+				[
+					"demo - demo/fast",
+					""
+				],
+				[
+					"demo - edit_cache",
+					""
+				],
+				[
+					"demo - rebuild_cache",
+					""
+				]
+			],
+			[
+				"demo - all",
+				""
+			]
+		],
+		[
+			[
+				[
+					"demo - all",
+					""
+				],
+				[
+					"demo - clean",
+					""
+				],
+				[
+					"demo - demo",
+					""
+				],
+				[
+					"demo - demo/fast",
+					""
+				],
+				[
+					"demo - edit_cache",
+					""
+				],
+				[
+					"demo - rebuild_cache",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					""
+				],
+				[
+					"Packages/C++/C++ Single File.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/C++ Starting Kit/C++ - Starting Kit.sublime-build",
+					""
+				],
+				[
+					"Packages/C++ Starting Kit/C++ - Starting Kit.sublime-build",
+					"Run"
+				],
+				[
+					"Packages/C++11/C++11.sublime-build",
+					""
+				],
+				[
+					"Packages/C++11/C++11.sublime-build",
+					"Run"
+				]
+			],
+			[
+				"demo - all",
+				""
+			]
+		]
+	],
+	"build_varint": "",
+	"command_palette":
+	{
+		"height": 167.0,
+		"last_filter": "install",
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 409.0
+	},
+	"console":
+	{
+		"height": 0.0,
+		"history":
+		[
+		]
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"expanded_folders":
+	[
+		"/home/postep/pobr/src"
+	],
+	"file_history":
+	[
+		"/home/postep/pobr/.sublime-project",
+		"/home/postep/pobr/src/DisplayImage.cpp",
+		"/home/postep/pobr/src/cmake-modules/FindOpenCV.cmake",
+		"/home/postep/pobr/CMakeLists.txt",
+		"/home/postep/pobr/DisplayImage.cpp",
+		"/home/postep/mbi/etap2/maker_opts.ctl",
+		"/home/postep/mbi/etap2/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/8E/EB/HDID_contig0000017/HDID_fasta.gff",
+		"/home/postep/mbi/etap2/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/8E/EB/HDID_contig0000017/out.gff",
+		"/home/postep/mbi/etap2/single_scaffold.fa.maker.output/single_scaffold.fa_datastore/8E/EB/HDID_contig0000017/HDID_fasta2.gff",
+		"/home/postep/rob_l2/rob_l2.pdf",
+		"/etc/apt/sources.list.d/bitcoin-ubuntu-bitcoin-yakkety.list",
+		"/etc/apt/sources.list.d/i-nex-development-team-ubuntu-daily-yakkety.list",
+		"/etc/apt/sources.list.d/i-nex-development-team-ubuntu-daily-yakkety.list.save",
+		"/etc/apt/sources.list.d/webupd8team-ubuntu-sublime-text-3-yakkety.list",
+		"/etc/apt/sources.list.d/webupd8team-ubuntu-java-yakkety.list.save",
+		"/etc/apt/sources.list.d/webupd8team-ubuntu-java-yakkety.list",
+		"/etc/apt/sources.list.d/skunk-ubuntu-pepper-flash-yakkety.list.save",
+		"/etc/apt/sources.list.d/skunk-ubuntu-pepper-flash-yakkety.list",
+		"/etc/apt/sources.list.d/ros-latest.list.save",
+		"/etc/apt/sources.list.d/ros-latest.list",
+		"/etc/apt/sources.list",
+		"/home/postep/modi/dane_statyczne/dane_statyczne.m",
+		"/home/postep/cmake_tutorial/tutorial.cxx",
+		"/home/postep/cmake_tutorial/TutorialConfig.h.in",
+		"/home/postep/cmake_tutorial/MathFunctions/MathFunctions.h",
+		"/home/postep/rtp/.gitignore",
+		"/home/postep/Pulpit/test.py",
+		"/home/postep/cmake_tutorial/MathFunctions/CMakeLists.txt",
+		"/home/postep/cmake_tutorial/build/TutorialConfig.h",
+		"/home/postep/public_html/index.html",
+		"/home/postep/pf.py",
+		"/home/postep/cmake_tutorial/MathFunctions/#include <math.h>",
+		"/home/postep/inz/students/bsc/16-jpostepski/praca/images/parser.py",
+		"/home/postep/main.cpp",
+		"/home/postep/mqstart.sh",
+		"/home/postep/wynik.txt",
+		"/home/postep/python-getting-started/Procfile",
+		"/home/postep/konie/index.html",
+		"/home/postep/python-getting-started/Pipfile",
+		"/home/postep/for(int i = 1; i < l; i++).cpp",
+		"/home/postep/list.txt",
+		"/home/postep/inz/students/bsc/16-jpostepski/praca/text/01-streszczenie.tex",
+		"/home/postep/inz/students/bsc/16-jpostepski/praca/text/02-wstep.tex",
+		"/home/postep/inz/students/bsc/16-jpostepski/praca/text/03-robot.tex",
+		"/home/postep/inz/students/bsc/16-jpostepski/praca/text/10-testy.tex",
+		"/home/postep/inz/students/bsc/16-jpostepski/praca/text/04-przeglad.tex",
+		"/home/postep/inz/students/bsc/16-jpostepski/praca/text/05-wymagania.tex",
+		"/home/postep/inz/students/bsc/16-jpostepski/praca/text/06-protokol.tex",
+		"/home/postep/inz/students/bsc/16-jpostepski/praca/text/07-mikrokomputer.tex",
+		"/home/postep/inz/students/bsc/16-jpostepski/praca/text/09-sterownik.tex",
+		"/home/postep/inz/students/bsc/16-jpostepski/praca/text/08-komputer.tex",
+		"/home/postep/inz/students/bsc/16-jpostepski/praca/text/11-podsumowanie.tex",
+		"/home/postep/history.xml",
+		"/home/postep/p.py",
+		"/home/postep/history.txt"
+	],
+	"find":
+	{
+		"height": 27.0
+	},
+	"find_in_files":
+	{
+		"height": 132.0,
+		"where_history":
+		[
+			"/etc/apt/sources.list.d"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"binary_filter",
+			"r",
+			"length",
+			"launchpad",
+			"yakkety"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+			"artful"
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "src/demo.cpp",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 12162,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								10468,
+								10468
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": -1,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+									"1":
+									[
+										10961,
+										10962
+									]
+								},
+								"icon":
+								{
+									"1":
+									[
+										"Packages/BracketHighlighter/icons/curly_bracket.png",
+										"region.purplish"
+									]
+								},
+								"open":
+								{
+									"1":
+									[
+										10446,
+										10447
+									]
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content"
+							],
+							"syntax": "Packages/C++11/C++11.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 6953.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 0,
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "src/CMakeLists.txt",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 202,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"bracket_highlighter.busy": false,
+							"bracket_highlighter.clone": 183,
+							"bracket_highlighter.clone_locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.clone_regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"bracket_highlighter.locations":
+							{
+								"close":
+								{
+								},
+								"icon":
+								{
+								},
+								"open":
+								{
+								},
+								"unmatched":
+								{
+								}
+							},
+							"bracket_highlighter.regions":
+							[
+								"bh_curly",
+								"bh_curly_center",
+								"bh_curly_open",
+								"bh_curly_close",
+								"bh_curly_content",
+								"bh_tag",
+								"bh_tag_center",
+								"bh_tag_open",
+								"bh_tag_close",
+								"bh_tag_content",
+								"bh_double_quote",
+								"bh_double_quote_center",
+								"bh_double_quote_open",
+								"bh_double_quote_close",
+								"bh_double_quote_content",
+								"bh_single_quote",
+								"bh_single_quote_center",
+								"bh_single_quote_open",
+								"bh_single_quote_close",
+								"bh_single_quote_content",
+								"bh_unmatched",
+								"bh_unmatched_center",
+								"bh_unmatched_open",
+								"bh_unmatched_close",
+								"bh_unmatched_content",
+								"bh_c_define",
+								"bh_c_define_center",
+								"bh_c_define_open",
+								"bh_c_define_close",
+								"bh_c_define_content",
+								"bh_default",
+								"bh_default_center",
+								"bh_default_open",
+								"bh_default_close",
+								"bh_default_content",
+								"bh_angle",
+								"bh_angle_center",
+								"bh_angle_open",
+								"bh_angle_close",
+								"bh_angle_content",
+								"bh_round",
+								"bh_round_center",
+								"bh_round_open",
+								"bh_round_close",
+								"bh_round_content",
+								"bh_square",
+								"bh_square_center",
+								"bh_square_open",
+								"bh_square_close",
+								"bh_square_content",
+								"bh_regex",
+								"bh_regex_center",
+								"bh_regex_open",
+								"bh_regex_close",
+								"bh_regex_content"
+							],
+							"syntax": "Packages/CMakeEditor/CMakeEditor.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"stack_index": 1,
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 27.0
+	},
+	"input":
+	{
+		"height": 0.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.CppYCM.8":
+	{
+		"height": 0.0
+	},
+	"output.exec":
+	{
+		"height": 157.0
+	},
+	"output.find_results":
+	{
+		"height": 0.0
+	},
+	"pinned_build_system": "",
+	"project": "demo.sublime-project",
+	"replace":
+	{
+		"height": 50.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"last_filter": "",
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"selected_group": 0,
+	"settings":
+	{
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 412.0,
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
+}
